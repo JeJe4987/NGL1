@@ -1,12 +1,12 @@
-// Replace the below config object with your Firebase project config
+// Firebase configuration for your project
 const firebaseConfig = {
-    apiKey: "AIzaSyArc0CMcClGsT__fDKfAj-TuYg5zPoynhw",
-    authDomain: "ngl1-a7cb4.firebaseapp.com",
-    projectId: "ngl1-a7cb4",
-    storageBucket: "ngl1-a7cb4.firebasestorage.app",
-    messagingSenderId: "262815780183",
-    appId: "1:262815780183:web:ae1ee496530c83cc380212",
-    measurementId: "G-HZJGR98R8M"
+  apiKey: "AIzaSyD7q6q6q6q6q6q6q6q6q6q6q6q6q6q6q6",
+  authDomain: "ngl1-a7cb4.firebaseapp.com",
+  databaseURL: "https://ngl1-a7cb4-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "ngl1-a7cb4",
+  storageBucket: "ngl1-a7cb4.appspot.com",
+  messagingSenderId: "1234567890",
+  appId: "1:1234567890:web:abcdef123456"
 };
 
 // Initialize Firebase
