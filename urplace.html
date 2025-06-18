@@ -46,7 +46,8 @@
       }).then(() => {
         status.textContent = 'Cerita berhasil dikirim!';
         form.reset();
-      }).catch(() => {
+      }).catch((error) => {
+        console.error('Firebase write failed:', error);
         status.textContent = 'Gagal mengirim cerita. Coba lagi.';
       });
     });
