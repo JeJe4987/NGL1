@@ -218,6 +218,19 @@ button:hover {
   opacity: 0;
   transform: translateX(-25px);
   transition: transform 0.4s ease, opacity 0.4s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin-bottom: 0.6rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.message-item.unread {
+  background-color: rgba(244, 67, 54, 0.2); /* light red for unread */
+}
+
+.message-item.read {
+  background-color: rgba(76, 175, 80, 0.15); /* light green for read */
 }
 
 .message-item:last-child {
