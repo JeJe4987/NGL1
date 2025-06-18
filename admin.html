@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin - Messages</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container" id="content" style="display:none;">
+    <h1>Pesan Masuk</h1>
+    <div id="messages" class="message-list"></div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
+
+  <script>
+    const password = prompt('Masukkan password untuk mengakses halaman admin:');
+    if (password === 'rahasia123') {
+      document.getElementById('content').style.display = 'block';
+
+      const messagesDiv = document.getElementById('messages');
+      const messagesRef = database.ref('messages');
+
+      messagesRef.on('child_added', (snapshot) => {
+        const msg = snapshot.val();
+        const messageItem = document.createElement('div');
+        messageItem.classList.add('message-item');
+
+        const nameElem = document.createElement('div');
+        nameElem.classList.add('message-name');
+        nameElem.textContent = msg.name ? msg.name : 'Anonim';
+
+        const textElem = document.createElement('div');
+        textElem.classList.add('message-text');
+        textElem.textContent = msg.message;
+
+        messageItem.appendChild(nameElem);
+        messageItem.appendChild(textElem);
+
+        messagesDiv.prepend(messageItem);
+
+        // Add animation class for smooth appearance
+        setTimeout(() => {
+          messageItem.classList.add('show');
+        }, 10);
+      });
+    } else {
+      alert('Password salah. Anda tidak diizinkan mengakses halaman ini.');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,785 @@
+/* Common styles for all pages */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #56ccf2, #2f80ed);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: backgroundAnimation 20s ease infinite;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  background-size: 400% 400%;
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 12px 48px 0 rgba(47, 128, 237, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.container:hover {
+  box-shadow: 0 20px 60px 0 rgba(47, 128, 237, 0.9);
+  transform: translateY(0);
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 0 15px rgba(0,0,0,0.6);
+  animation: fadeInDown 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(-25px);
+  font-weight: 700;
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-photo {
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #56ccf2;
+  box-shadow: 0 0 25px #56ccf2;
+  animation: pulse 3.5s infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.profile-photo:hover {
+  transform: scale(1.15) rotate(7deg);
+  box-shadow: 0 0 40px #2f80ed;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 25px #56ccf2;
+  }
+  50% {
+    box-shadow: 0 0 50px #2f80ed;
+  }
+  100% {
+    box-shadow: 0 0 25px #56ccf2;
+  }
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 1.3rem;
+  color: #d0e7ff;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  text-shadow: 0 0 12px rgba(0,0,0,0.4);
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-name: fadeInDown;
+  animation-duration: 1.2s;
+  animation-timing-function: ease;
+}
+
+/* Form styles for Ur Place page */
+form {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  animation-delay: 0.6s;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(47, 128, 237, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+form:hover {
+  box-shadow: 0 16px 48px 0 rgba(47, 128, 237, 0.8);
+  transform: translateY(0);
+}
+
+input[type="text"], textarea {
+  flex: 1 1 45%;
+  padding: 1rem;
+  border-radius: 15px;
+  border: none;
+  font-size: 1.1rem;
+  resize: vertical;
+  box-shadow: 0 0 15px rgba(86, 204, 242, 0.8);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  font-weight: 500;
+}
+
+input[type="text"]::placeholder, textarea::placeholder {
+  color: #cce0ff;
+  font-weight: 400;
+}
+
+input[type="text"]:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 30px #2f80ed;
+  transform: scale(1.07);
+}
+
+button {
+  background: #56ccf2;
+  border: none;
+  padding: 1.2rem 2.5rem;
+  border-radius: 25px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  margin-top: 1rem;
+  align-self: flex-start;
+  box-shadow: 0 0 15px #56ccf2;
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  animation-delay: 0.8s;
+}
+
+button:hover {
+  background: #2f80ed;
+  box-shadow: 0 0 30px #2f80ed;
+  transform: scale(1.15);
+}
+
+/* Messages list for admin page */
+.message-list {
+  max-height: 420px;
+  overflow-y: auto;
+  margin-top: 1.2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1.2rem;
+  box-shadow: inset 0 0 15px rgba(47, 128, 237, 0.7);
+  animation: fadeInUp 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.message-list:hover {
+  box-shadow: inset 0 0 30px rgba(31, 38, 135, 0.8);
+  transform: translateY(0);
+}
+
+.message-item {
+  border-bottom: 1px solid #2f80ed;
+  padding: 0.6rem 0;
+  animation: messageFadeIn 0.6s ease forwards;
+  opacity: 0;
+  transform: translateX(-25px);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.message-item:last-child {
+  border-bottom: none;
+}
+
+.message-item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.message-name {
+  font-weight: 700;
+  color: #a3d1ff;
+  text-shadow: 0 0 8px #56ccf2;
+}
+
+.message-text {
+  white-space: pre-wrap;
+  margin-top: 0.3rem;
+  color: #d0e7ff;
+  font-weight: 500;
+}
+
+@keyframes messageFadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Navigation link styles */
+a {
+  transition: color 0.4s ease, transform 0.4s ease;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 0 15px rgba(86, 204, 242, 0.7);
+  background: rgba(86, 204, 242, 0.3);
+  color: white;
+  user-select: none;
+}
+
+a:hover {
+  color: #d0e7ff;
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(47, 128, 237, 0.9);
+}
+
+/* Scrollbar styling */
+.message-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.message-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+}
+
+.message-list::-webkit-scrollbar-thumb {
+  background: #56ccf2;
+  border-radius: 20px;
+  transition: background 0.4s ease;
+}
+
+.message-list::-webkit-scrollbar-thumb:hover {
+  background: #2f80ed;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  input[type="text"], textarea {
+    flex: 1 1 100%;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.container:hover {
+  box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.6);
+  transform: translateY(0);
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  animation: fadeInDown 1s ease forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-photo {
+  display: block;
+  margin: 0 auto 1rem auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4da6ff;
+  box-shadow: 0 0 15px #4da6ff;
+  animation: pulse 3s infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-photo:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 30px #80bfff;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 15px #4da6ff;
+  }
+  50% {
+    box-shadow: 0 0 30px #80bfff;
+  }
+  100% {
+    box-shadow: 0 0 15px #4da6ff;
+  }
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: #cce0ff;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(0,0,0,0.3);
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-name: fadeInDown;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+}
+
+/* Form styles for Ur Place page */
+form {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  animation-delay: 0.5s;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+form:hover {
+  box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.6);
+  transform: translateY(0);
+}
+
+input[type="text"], textarea {
+  flex: 1 1 45%;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  resize: vertical;
+  box-shadow: 0 0 10px rgba(77, 166, 255, 0.7);
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+input[type="text"]::placeholder, textarea::placeholder {
+  color: #cce0ff;
+}
+
+input[type="text"]:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 20px #80bfff;
+  transform: scale(1.05);
+}
+
+button {
+  background: #4da6ff;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  margin-top: 1rem;
+  align-self: flex-start;
+  box-shadow: 0 0 10px #4da6ff;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  animation-delay: 0.7s;
+}
+
+button:hover {
+  background: #3399ff;
+  box-shadow: 0 0 20px #3399ff;
+  transform: scale(1.1);
+}
+
+/* Messages list for admin page */
+.message-list {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  box-shadow: inset 0 0 10px rgba(77, 166, 255, 0.7);
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.message-list:hover {
+  box-shadow: inset 0 0 20px rgba(31, 38, 135, 0.6);
+  transform: translateY(0);
+}
+
+.message-item {
+  border-bottom: 1px solid #4da6ff;
+  padding: 0.5rem 0;
+  animation: messageFadeIn 0.5s ease forwards;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.message-item:last-child {
+  border-bottom: none;
+}
+
+.message-item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.message-name {
+  font-weight: bold;
+  color: #80bfff;
+}
+
+.message-text {
+  white-space: pre-wrap;
+  margin-top: 0.2rem;
+  color: #cce0ff;
+}
+
+@keyframes messageFadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Navigation link styles */
+a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+  color: #80bfff;
+  transform: scale(1.05);
+}
+
+/* Scrollbar styling */
+.message-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.message-list::-webkit-scrollbar-thumb {
+  background: #4da6ff;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.message-list::-webkit-scrollbar-thumb:hover {
+  background: #3399ff;
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  animation: fadeInDown 1s ease forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-photo {
+  display: block;
+  margin: 0 auto 1rem auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4da6ff;
+  box-shadow: 0 0 15px #4da6ff;
+  animation: pulse 3s infinite;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-photo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 15px #4da6ff;
+  }
+  50% {
+    box-shadow: 0 0 30px #80bfff;
+  }
+  100% {
+    box-shadow: 0 0 15px #4da6ff;
+  }
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: #cce0ff;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(0,0,0,0.3);
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-name: fadeInDown;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+}
+
+/* Form styles for Ur Place page */
+form {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  animation-delay: 0.5s;
+}
+
+input[type="text"], textarea {
+  flex: 1 1 45%;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  resize: vertical;
+  box-shadow: 0 0 10px rgba(77, 166, 255, 0.7);
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+input[type="text"]::placeholder, textarea::placeholder {
+  color: #cce0ff;
+}
+
+input[type="text"]:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 20px #80bfff;
+  transform: scale(1.05);
+}
+
+button {
+  background: #4da6ff;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  margin-top: 1rem;
+  align-self: flex-start;
+  box-shadow: 0 0 10px #4da6ff;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  animation-delay: 0.7s;
+}
+
+button:hover {
+  background: #3399ff;
+  box-shadow: 0 0 20px #3399ff;
+  transform: scale(1.1);
+}
+
+/* Messages list for admin page */
+.message-list {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  box-shadow: inset 0 0 10px rgba(77, 166, 255, 0.7);
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.message-item {
+  border-bottom: 1px solid #4da6ff;
+  padding: 0.5rem 0;
+  animation: messageFadeIn 0.5s ease forwards;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.message-item:last-child {
+  border-bottom: none;
+}
+
+.message-name {
+  font-weight: bold;
+  color: #80bfff;
+}
+
+.message-text {
+  white-space: pre-wrap;
+  margin-top: 0.2rem;
+  color: #cce0ff;
+}
+
+@keyframes messageFadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Navigation link styles */
+a {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+  color: #80bfff;
+  transform: scale(1.05);
+}
+
+/* Scrollbar styling */
+.message-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.message-list::-webkit-scrollbar-thumb {
+  background: #4da6ff;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.message-list::-webkit-scrollbar-thumb:hover {
+  background: #3399ff;
+}
